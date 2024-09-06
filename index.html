@@ -48,23 +48,43 @@
 </head>
 <body>
     <iframe src="https://giphy.com/embed/d6UbuwWVKJHXO" class="background-iframe" allowFullScreen></iframe>
-    <button id="play-connect-sound">AHHH!</button>
-    <button id="play-disconnect-sound">YEAHHHH</button>
+    <button id="play-connect-sound">Play USB Connect Sound</button>
+    <button id="play-disconnect-sound">Play USB Disconnect Sound</button>
+    <button id="toggle-loop">Toggle Loop USB Connect Sound</button>
 
     <audio id="usb-connect-sound" src="usb-connect.mp3"></audio>
     <audio id="usb-disconnect-sound" src="usb-disconnect.mp3"></audio>
 
     <script>
-        // USB Connect Button
+        // Variables to manage loop state
+        let isLooping = false;
+        const connectSound = document.getElementById('usb-connect-sound');
+
+        // Play USB Connect Sound Button
         document.getElementById('play-connect-sound').addEventListener('click', function() {
-            var connectSound = document.getElementById('usb-connect-sound');
             connectSound.play();
         });
 
-        // USB Disconnect Button
+        // Play USB Disconnect Sound Button
         document.getElementById('play-disconnect-sound').addEventListener('click', function() {
             var disconnectSound = document.getElementById('usb-disconnect-sound');
             disconnectSound.play();
+        });
+
+        // Toggle Loop Button
+        document.getElementById('toggle-loop').addEventListener('click', function() {
+            if (isLooping) {
+                // Stop looping
+                connectSound.loop = false;
+                connectSound.pause();
+                connectSound.currentTime = 0;
+                isLooping = false;
+            } else {
+                // Start looping
+                connectSound.loop = true;
+                connectSound.play();
+                isLooping = true;
+            }
         });
     </script>
 </body>

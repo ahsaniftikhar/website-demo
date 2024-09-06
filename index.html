@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USB Sound Effects</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
     <style>
         body {
             display: flex;
@@ -12,24 +13,29 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrollbars */
-            position: relative; /* For positioning the iframe */
-            background-color: #000; /* Fallback background color */
-            background-image: url('https://media.giphy.com/media/d6UbuwWVKJHXO/giphy.gif'); /* Direct GIF URL */
+            font-family: 'Pacifico', cursive;
+            overflow: hidden;
+            position: relative;
+            background-color: #000;
+            background-image: url('https://media.giphy.com/media/d6UbuwWVKJHXO/giphy.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
         button {
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
             padding: 20px 40px;
-            font-size: 18px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #008CBA;
-            color: white;
+            background: linear-gradient(45deg, #ff0081, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            transform: rotate(-5deg);
+            letter-spacing: 2px;
             margin: 10px;
         }
         button:hover {
@@ -42,15 +48,15 @@
             width: 100vw;
             height: 100vh;
             border: none;
-            z-index: -1; /* Make sure it's behind other content */
+            z-index: -1;
         }
     </style>
 </head>
 <body>
     <iframe src="https://giphy.com/embed/d6UbuwWVKJHXO" class="background-iframe" allowFullScreen></iframe>
-    <button id="play-connect-sound">OOOH</button>
-    <button id="play-disconnect-sound">AAAH</button>
-    <button id="toggle-loop">OH YEAAA!</button>
+    <button id="play-connect-sound">Play USB Connect Sound</button>
+    <button id="play-disconnect-sound">Play USB Disconnect Sound</button>
+    <button id="toggle-loop">Toggle Loop USB Connect Sound</button>
 
     <audio id="usb-connect-sound" src="usb-connect.mp3"></audio>
     <audio id="usb-disconnect-sound" src="usb-disconnect.mp3"></audio>
